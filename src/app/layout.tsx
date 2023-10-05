@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={robotoMono.className}>
-        <div className="flex flex-col items-center justify-center">
+        <div className="bg-slate-100 flex flex-1 min-h-screen flex-col items-center justify-center">
           {children}
         </div>
       </body>

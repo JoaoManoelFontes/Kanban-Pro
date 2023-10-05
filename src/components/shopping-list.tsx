@@ -1,32 +1,68 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { tv } from 'tailwind-variants'
 import { Separator } from './ui/separator'
 import { DragDropContext, DropResult } from 'react-beautiful-dnd'
 
-import { data } from '@/utils/data'
+import { Item, data } from '@/types/data'
 import { Store } from './store'
+import { api } from '@/lib/api'
 
 // ? Item style variants
 const item = tv({
   base: 'rounded-lg px-4 w-full py-2 text-left text-slate-900',
   variants: {
     status: {
-      default: 'bg-slate-400',
-      active: 'bg-slate-300',
-      inactive: 'bg-slate-300',
+      'to-do': 'bg-red-300',
+      'in progress': 'bg-orange-200',
+      done: 'bg-emerald-300',
     },
-  },
-  defaultVariants: {
-    status: 'default',
   },
 })
 
 export function ShoppingList() {
   const [stores, setStores] = useState(data)
 
-  const handleOnDragEnd = (result: DropResult) => {
+  async function getTask() {
+    const user = await api.post('/user/auth', {
+      email: '',
+      password: '',
+    })
+
+    const { data } = await api.get('/task', {
+      headers: {
+        Authorization: `Bearer ${user.data.token}`,
+      },
+    })
+
+    const done = [...stores[2].items]
+    const inProgress = [...stores[1].items]
+    const todo = [...stores[0].items]
+
+    data.forEach((element: Item) => {
+      if (element.markAsDone) {
+        done.splice(0, 0, element)
+      } else if (element.markAsMaking) {
+        inProgress.splice(0, 0, element)
+      } else {
+        todo.splice(0, 0, element)
+      }
+    })
+
+    const newStores = [...stores]
+    newStores[0].items = todo
+    newStores[1].items = inProgress
+    newStores[2].items = done
+    setStores(newStores)
+  }
+
+  useEffect(() => {
+    // ! useEffect called twice
+    console.log('useEffect')
+  }, [])
+
+  const handleOnDragEnd = async (result: DropResult) => {
     const { destination, source } = result
 
     if (!destination) return
@@ -74,20 +110,24 @@ export function ShoppingList() {
   }
 
   return (
-    <main>
-      <DragDropContext onDragEnd={handleOnDragEnd}>
-        <div>
-          <h1>Drag n` Drop</h1>
-        </div>
-        <Separator className="my-2 bg-slate-900" />
-        <div className="flex gap-2 p-5">
-          {stores.map((store) => (
-            <div key={store.id} className={item({ status: store.status })}>
-              <Store data={store} />
-            </div>
-          ))}
-        </div>
-      </DragDropContext>
+    <main className="mb-20">
+      <div>
+        <h1>Drag n` Drop</h1>
+      </div>
+      <Separator className="my-2 bg-slate-900" />
+      <div className="flex gap-2 p-5">
+        <DragDropContext onDragEnd={handleOnDragEnd}>
+          <div key={stores[0].id} className={item({ status: 'to-do' })}>
+            <Store data={stores[0]} />
+          </div>
+          <div key={stores[1].id} className={item({ status: 'in progress' })}>
+            <Store data={stores[1]} />
+          </div>
+          <div key={stores[2].id} className={item({ status: 'done' })}>
+            <Store data={stores[2]} />
+          </div>
+        </DragDropContext>
+      </div>
     </main>
   )
 }

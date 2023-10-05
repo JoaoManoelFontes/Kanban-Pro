@@ -1,3 +1,63 @@
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[5].oneOf[2].use[1]!./node_modules/next/dist/build/webpack/loaders/next-font-loader/index.js??ruleSet[1].rules[5].oneOf[2].use[2]!./node_modules/next/font/google/target.css?{"path":"src\\app\\layout.tsx","import":"Roboto_Mono","arguments":[{"subsets":["latin"]}],"variableName":"robotoMono"} ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/* cyrillic-ext */
+@font-face {
+  font-family: '__Roboto_Mono_829659';
+  font-style: normal;
+  font-weight: 100 700;
+  font-display: swap;
+  src: url(/_next/static/media/ffff0c425fbeefe6-s.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: '__Roboto_Mono_829659';
+  font-style: normal;
+  font-weight: 100 700;
+  font-display: swap;
+  src: url(/_next/static/media/c21b67b0a36892e5-s.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: '__Roboto_Mono_829659';
+  font-style: normal;
+  font-weight: 100 700;
+  font-display: swap;
+  src: url(/_next/static/media/c5a3bf8cfa32037a-s.woff2) format('woff2');
+  unicode-range: U+0370-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: '__Roboto_Mono_829659';
+  font-style: normal;
+  font-weight: 100 700;
+  font-display: swap;
+  src: url(/_next/static/media/b2f7755ffc613443-s.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: '__Roboto_Mono_829659';
+  font-style: normal;
+  font-weight: 100 700;
+  font-display: swap;
+  src: url(/_next/static/media/369c6e283c5acc6e-s.woff2) format('woff2');
+  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: '__Roboto_Mono_829659';
+  font-style: normal;
+  font-weight: 100 700;
+  font-display: swap;
+  src: url(/_next/static/media/92f44bb82993d879-s.p.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}@font-face {font-family: '__Roboto_Mono_Fallback_829659';src: local("Arial");ascent-override: 77.08%;descent-override: 19.93%;line-gap-override: 0.00%;size-adjust: 135.95%
+}.__className_829659 {font-family: '__Roboto_Mono_829659', '__Roboto_Mono_Fallback_829659';font-style: normal
+}
+
 /*!***************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[5].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[5].oneOf[12].use[3]!./src/app/globals.css ***!
   \***************************************************************************************************************************************************************************************************************************************************************/
@@ -534,6 +594,9 @@ video {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
 }
+.mb-20 {
+  margin-bottom: 5rem;
+}
 .flex {
   display: flex;
 }
@@ -555,6 +618,9 @@ video {
 .h-full {
   height: 100%;
 }
+.min-h-screen {
+  min-height: 100vh;
+}
 .w-9 {
   width: 2.25rem;
 }
@@ -563,6 +629,9 @@ video {
 }
 .w-full {
   width: 100%;
+}
+.flex-1 {
+  flex: 1 1 0%;
 }
 .shrink-0 {
   flex-shrink: 0;
@@ -600,9 +669,9 @@ video {
 .border-input {
   border-color: hsl(var(--input));
 }
-.border-slate-500 {
+.border-slate-800 {
   --tw-border-opacity: 1;
-  border-color: rgb(100 116 139 / var(--tw-border-opacity));
+  border-color: rgb(30 41 59 / var(--tw-border-opacity));
 }
 .bg-background {
   background-color: hsl(var(--background));
@@ -613,27 +682,31 @@ video {
 .bg-destructive {
   background-color: hsl(var(--destructive));
 }
+.bg-emerald-300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(110 231 183 / var(--tw-bg-opacity));
+}
 .bg-gray-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
 }
+.bg-orange-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 215 170 / var(--tw-bg-opacity));
+}
 .bg-primary {
   background-color: hsl(var(--primary));
+}
+.bg-red-300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(252 165 165 / var(--tw-bg-opacity));
 }
 .bg-secondary {
   background-color: hsl(var(--secondary));
 }
-.bg-slate-200 {
+.bg-slate-100 {
   --tw-bg-opacity: 1;
-  background-color: rgb(226 232 240 / var(--tw-bg-opacity));
-}
-.bg-slate-300 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(203 213 225 / var(--tw-bg-opacity));
-}
-.bg-slate-400 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(148 163 184 / var(--tw-bg-opacity));
+  background-color: rgb(241 245 249 / var(--tw-bg-opacity));
 }
 .bg-slate-600 {
   --tw-bg-opacity: 1;
@@ -797,65 +870,5 @@ video {
 .data-\[to-do\=true\]\:bg-red-300[data-to-do=true] {
   --tw-bg-opacity: 1;
   background-color: rgb(252 165 165 / var(--tw-bg-opacity));
-}
-
-/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[5].oneOf[2].use[1]!./node_modules/next/dist/build/webpack/loaders/next-font-loader/index.js??ruleSet[1].rules[5].oneOf[2].use[2]!./node_modules/next/font/google/target.css?{"path":"src\\app\\layout.tsx","import":"Roboto_Mono","arguments":[{"subsets":["latin"]}],"variableName":"robotoMono"} ***!
-  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/* cyrillic-ext */
-@font-face {
-  font-family: '__Roboto_Mono_829659';
-  font-style: normal;
-  font-weight: 100 700;
-  font-display: swap;
-  src: url(/_next/static/media/ffff0c425fbeefe6-s.woff2) format('woff2');
-  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
-}
-/* cyrillic */
-@font-face {
-  font-family: '__Roboto_Mono_829659';
-  font-style: normal;
-  font-weight: 100 700;
-  font-display: swap;
-  src: url(/_next/static/media/c21b67b0a36892e5-s.woff2) format('woff2');
-  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
-}
-/* greek */
-@font-face {
-  font-family: '__Roboto_Mono_829659';
-  font-style: normal;
-  font-weight: 100 700;
-  font-display: swap;
-  src: url(/_next/static/media/c5a3bf8cfa32037a-s.woff2) format('woff2');
-  unicode-range: U+0370-03FF;
-}
-/* vietnamese */
-@font-face {
-  font-family: '__Roboto_Mono_829659';
-  font-style: normal;
-  font-weight: 100 700;
-  font-display: swap;
-  src: url(/_next/static/media/b2f7755ffc613443-s.woff2) format('woff2');
-  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
-}
-/* latin-ext */
-@font-face {
-  font-family: '__Roboto_Mono_829659';
-  font-style: normal;
-  font-weight: 100 700;
-  font-display: swap;
-  src: url(/_next/static/media/369c6e283c5acc6e-s.woff2) format('woff2');
-  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-/* latin */
-@font-face {
-  font-family: '__Roboto_Mono_829659';
-  font-style: normal;
-  font-weight: 100 700;
-  font-display: swap;
-  src: url(/_next/static/media/92f44bb82993d879-s.p.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}@font-face {font-family: '__Roboto_Mono_Fallback_829659';src: local("Arial");ascent-override: 77.08%;descent-override: 19.93%;line-gap-override: 0.00%;size-adjust: 135.95%
-}.__className_829659 {font-family: '__Roboto_Mono_829659', '__Roboto_Mono_Fallback_829659';font-style: normal
 }
 

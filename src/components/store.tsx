@@ -1,4 +1,4 @@
-import { Data } from '@/utils/data'
+import { Data } from '@/types/data'
 import { Separator } from './ui/separator'
 import { Draggable, Droppable } from 'react-beautiful-dnd'
 
@@ -24,15 +24,15 @@ export function Store({ data }: Props) {
                     {...provided.dragHandleProps}
                     ref={provided.innerRef}
                     key={item.id}
-                    className="border-solid border-2 border-slate-500 text-center rounded-md p-2 bg-slate-200"
+                    className="border-solid border-2 border-slate-800 text-center rounded-md p-2 "
                   >
-                    <h4>{item.name}</h4>
+                    <h4>{item.title}</h4>
                   </div>
                 )}
               </Draggable>
             ))}
+            {provided.placeholder}
           </div>
-          {provided.placeholder}
         </div>
       )}
     </Droppable>
