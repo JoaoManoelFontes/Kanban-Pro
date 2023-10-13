@@ -1,11 +1,10 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { tv } from 'tailwind-variants'
-import { Separator } from './ui/separator'
 import { DragDropContext, DropResult } from 'react-beautiful-dnd'
 
-import { Item, data } from '@/types/data'
+import { Item, data, Data } from '@/types/data'
 import { Store } from './store'
 import { api } from '@/lib/api'
 
@@ -21,7 +20,11 @@ const item = tv({
   },
 })
 
-export function ShoppingList() {
+type StoreProps = {
+  data: Array<Data>
+}
+
+export function ShoppingList({ data }: StoreProps) {
   const [stores, setStores] = useState(data)
 
   async function getTask() {
@@ -56,11 +59,6 @@ export function ShoppingList() {
     newStores[2].items = done
     setStores(newStores)
   }
-
-  useEffect(() => {
-    // ! useEffect called twice
-    console.log('useEffect')
-  }, [])
 
   const handleOnDragEnd = async (result: DropResult) => {
     const { destination, source } = result
@@ -110,24 +108,16 @@ export function ShoppingList() {
   }
 
   return (
-    <main className="mb-20">
-      <div>
-        <h1>Drag n` Drop</h1>
+    <DragDropContext onDragEnd={handleOnDragEnd}>
+      <div key={stores[0].id} className={item({ status: 'to-do' })}>
+        <Store data={stores[0]} />
       </div>
-      <Separator className="my-2 bg-slate-900" />
-      <div className="flex gap-2 p-5">
-        <DragDropContext onDragEnd={handleOnDragEnd}>
-          <div key={stores[0].id} className={item({ status: 'to-do' })}>
-            <Store data={stores[0]} />
-          </div>
-          <div key={stores[1].id} className={item({ status: 'in progress' })}>
-            <Store data={stores[1]} />
-          </div>
-          <div key={stores[2].id} className={item({ status: 'done' })}>
-            <Store data={stores[2]} />
-          </div>
-        </DragDropContext>
+      <div key={stores[1].id} className={item({ status: 'in progress' })}>
+        <Store data={stores[1]} />
       </div>
-    </main>
+      <div key={stores[2].id} className={item({ status: 'done' })}>
+        <Store data={stores[2]} />
+      </div>
+    </DragDropContext>
   )
 }
