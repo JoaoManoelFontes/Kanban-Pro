@@ -4,9 +4,8 @@ import { useState } from 'react'
 import { tv } from 'tailwind-variants'
 import { DragDropContext, DropResult } from 'react-beautiful-dnd'
 
-import { Item, data, Data } from '@/types/data'
+import { Data } from '@/types/data'
 import { Store } from './store'
-import { api } from '@/lib/api'
 
 // ? Item style variants
 const item = tv({
@@ -26,39 +25,6 @@ type StoreProps = {
 
 export function ShoppingList({ data }: StoreProps) {
   const [stores, setStores] = useState(data)
-
-  async function getTask() {
-    const user = await api.post('/user/auth', {
-      email: '',
-      password: '',
-    })
-
-    const { data } = await api.get('/task', {
-      headers: {
-        Authorization: `Bearer ${user.data.token}`,
-      },
-    })
-
-    const done = [...stores[2].items]
-    const inProgress = [...stores[1].items]
-    const todo = [...stores[0].items]
-
-    data.forEach((element: Item) => {
-      if (element.markAsDone) {
-        done.splice(0, 0, element)
-      } else if (element.markAsMaking) {
-        inProgress.splice(0, 0, element)
-      } else {
-        todo.splice(0, 0, element)
-      }
-    })
-
-    const newStores = [...stores]
-    newStores[0].items = todo
-    newStores[1].items = inProgress
-    newStores[2].items = done
-    setStores(newStores)
-  }
 
   const handleOnDragEnd = async (result: DropResult) => {
     const { destination, source } = result
