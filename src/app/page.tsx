@@ -5,8 +5,8 @@ import { data, Item } from '@/types/data'
 
 export default async function Home() {
   const user = await api.post('/user/auth', {
-    email: '',
-    password: '',
+    email: 'jmanufontesc@gmail.com',
+    password: 'gunsforever',
   })
 
   const tasks = await api.get('/task', {
@@ -15,9 +15,9 @@ export default async function Home() {
     },
   })
 
-  const done = [...data[2].items]
-  const inProgress = [...data[1].items]
-  const todo = [...data[0].items]
+  const done: Array<Item> = []
+  const inProgress: Array<Item> = []
+  const todo: Array<Item> = []
 
   tasks.data.forEach((element: Item) => {
     if (element.markAsDone) {

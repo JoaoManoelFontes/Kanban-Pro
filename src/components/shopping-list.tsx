@@ -6,6 +6,8 @@ import { DragDropContext, DropResult } from 'react-beautiful-dnd'
 
 import { Data } from '@/types/data'
 import { Store } from './store'
+import { Button } from '@/components/ui/button'
+import { PlusCircle } from 'lucide-react'
 
 // ? Item style variants
 const item = tv({
@@ -77,12 +79,21 @@ export function ShoppingList({ data }: StoreProps) {
     <DragDropContext onDragEnd={handleOnDragEnd}>
       <div key={stores[0].id} className={item({ status: 'to-do' })}>
         <Store data={stores[0]} />
+        <Button size="pill" variant="register">
+          <PlusCircle size={24} />
+        </Button>
       </div>
       <div key={stores[1].id} className={item({ status: 'in progress' })}>
         <Store data={stores[1]} />
+        <Button size="pill" variant="register">
+          <PlusCircle size={24} />
+        </Button>
       </div>
       <div key={stores[2].id} className={item({ status: 'done' })}>
         <Store data={stores[2]} />
+        <Button size="pill" variant="register">
+          <PlusCircle size={24} />
+        </Button>
       </div>
     </DragDropContext>
   )

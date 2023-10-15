@@ -1,6 +1,7 @@
 import { Data } from '@/types/data'
 import { Separator } from './ui/separator'
 import { Draggable, Droppable } from 'react-beautiful-dnd'
+import Link from 'next/link'
 
 type Props = {
   data: Data
@@ -26,7 +27,9 @@ export function Store({ data }: Props) {
                     key={item.id}
                     className="border-solid border-2 border-slate-800 text-center rounded-md p-2 "
                   >
-                    <h4>{item.title}</h4>
+                    <Link href={`/task/` + item.id}>
+                      <h4>{item.title}</h4>
+                    </Link>
                   </div>
                 )}
               </Draggable>

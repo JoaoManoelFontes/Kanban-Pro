@@ -21,7 +21,7 @@ export const data: Array<Data> = [
   },
   {
     id: '487f68b4-1746-438c-920e-d67b7df46247',
-    name: 'In Progress',
+    name: 'Progress',
     items: [],
   },
   {
