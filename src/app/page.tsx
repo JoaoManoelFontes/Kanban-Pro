@@ -5,8 +5,8 @@ import { data, Item } from '@/types/data'
 
 export default async function Home() {
   const user = await api.post('/user/auth', {
-    email: 'jmanufontesc@gmail.com',
-    password: 'gunsforever',
+    email: '',
+    password: '',
   })
 
   const tasks = await api.get('/task', {
