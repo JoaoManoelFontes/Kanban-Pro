@@ -12,7 +12,7 @@ export function Store({ data }: Props) {
     <Droppable droppableId={data.id}>
       {(provided) => (
         <div {...provided.droppableProps} ref={provided.innerRef}>
-          <div>
+          <div className="text-center">
             <h3>{data.name}</h3>
           </div>
           <Separator className="my-2 bg-slate-600" />

@@ -35,7 +35,7 @@ export default async function Home() {
 
   return (
     <main className="mb-20">
-      <div>
+      <div className="text-center">
         <h1>Drag n` Drop</h1>
       </div>
       <Separator className="my-2 bg-slate-900" />

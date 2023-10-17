@@ -8,10 +8,11 @@ import { Data } from '@/types/data'
 import { Store } from './store'
 import { Button } from '@/components/ui/button'
 import { PlusCircle } from 'lucide-react'
+import Link from 'next/link'
 
 // ? Item style variants
 const item = tv({
-  base: 'rounded-lg px-4 w-full py-2 text-left text-slate-900',
+  base: 'rounded-lg px-4 w-40 py-2 text-left text-slate-900',
   variants: {
     status: {
       'to-do': 'bg-red-300',
@@ -80,19 +81,25 @@ export function ShoppingList({ data }: StoreProps) {
       <div key={stores[0].id} className={item({ status: 'to-do' })}>
         <Store data={stores[0]} />
         <Button size="pill" variant="register">
-          <PlusCircle size={24} />
+          <Link href={`/task/create/${stores[0].name}`}>
+            <PlusCircle size={24} />
+          </Link>
         </Button>
       </div>
       <div key={stores[1].id} className={item({ status: 'in progress' })}>
         <Store data={stores[1]} />
         <Button size="pill" variant="register">
-          <PlusCircle size={24} />
+          <Link href={`/task/create/${stores[1].name}`}>
+            <PlusCircle size={24} />
+          </Link>
         </Button>
       </div>
       <div key={stores[2].id} className={item({ status: 'done' })}>
         <Store data={stores[2]} />
         <Button size="pill" variant="register">
-          <PlusCircle size={24} />
+          <Link href={`/task/create/${stores[2].name}`}>
+            <PlusCircle size={24} />
+          </Link>
         </Button>
       </div>
     </DragDropContext>
